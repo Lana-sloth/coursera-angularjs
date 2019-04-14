@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="hunger">
     <head>
         <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="app.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     </head>
-    <body>
-        <h1>Hello!</h1>
+    <body ng-controller="hungerCtrl">
+        <div>Empty strings are not counted!</div>
+        <input 
+            ng-model="food"
+            ng-style="border"
+        >
+        <button ng-click="checkIfTooMuch()">
+            Check If Too Much
+        </button>
+        <div>{{message}}</div>
     </body>
 </html>
