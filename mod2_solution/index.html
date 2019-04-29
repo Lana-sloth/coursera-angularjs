@@ -5,29 +5,52 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="app.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="bootstrap.min.css">
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1>Shopping List App</h1>
-        <div ng-controller="ToBuyController as toBuyList">
-            <h2>To buy:</h2>
-            <div ng-if="!toBuyList.items.length">Everything is bought!</div>
-            <div ng-repeat="item in toBuyList.items">
-                <button ng-click="toBuyList.buyThisItem($index)">
-                    Bought
-                </button>
-                Buy {{item.quantity}} {{ item.name }}
+        <div class="container">
+            <h1>Shopping List Check Off</h1>
+
+            <div class="row">
+                <div ng-controller="ToBuyController as toBuyList" class="col-md-6">
+                    <h2>To buy:</h2>
+                    <div ng-if="!toBuyList.items.length" class="alert alert-primary">
+                        Everything is bought!
+                    </div>
+                    <ul class="list-group">
+                        <li 
+                            ng-repeat="item in toBuyList.items" 
+                            class="list-group-item d-flex justify-content-between align-items-center"
+                        >
+                            Buy {{item.quantity}} {{ item.name }}
+                            <button type="button" 
+                                ng-click="toBuyList.buyThisItem($index)"
+                                class="btn btn-outline-primary btn-sm"
+                            >
+                                Bought
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-controller="AlreadyBoughtController as boughtList" class="col-md-6">
+                    <h2>Already bought:</h2>
+                    <div ng-if="!boughtList.items.length" class="alert alert-primary">
+                        Nothing bought yet
+                    </div>
+                    <ul class="list-group">
+                            <li 
+                            ng-repeat="item in boughtList.items" 
+                            class="list-group-item d-flex justify-content-between align-items-center"
+                        >
+                            Bought {{item.quantity}} {{ item.name }}
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-        </div>
-
-        <div ng-controller="AlreadyBoughtController as boughtList">
-            <h2>Bought:</h2>
-            <div ng-if="!boughtList.items.length">Nothing bought yet</div>
-            <div ng-repeat="item in boughtList.items">
-                Bought {{item.quantity}} {{ item.name }}
-            </div>
         </div>
     </body>
 </html>
