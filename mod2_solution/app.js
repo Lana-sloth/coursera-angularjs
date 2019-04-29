@@ -1,42 +1,64 @@
 (function(){
     'use strict';
-    angular.module('hunger', [])
-    .controller('hungerCtrl', hungerCtrl);
+    angular.module('ShoppingListCheckOff', [])
+    .controller('ToBuyController', ToBuyController)
+    .controller('AlreadyBoughtController', AlreadyBoughtController)
+    .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
-    function hungerCtrl($scope) {
-        $scope.food = '';
-        $scope.count = 0;
-        $scope.message = '';
-        $scope.border = {
-            'border-radius': '3px',
-            'border-style': 'solid',
-            'border-width': '1px',
-            'border-color': '#cccccc'
+    function ShoppingListCheckOffService() {
+        var service = this;
+        var toBuyItems = [
+            {
+                name: "Chocolate bar",
+                quantity: 1
+            },
+            {
+                name: "Coffee Drinks",
+                quantity: 5
+            },
+            {
+                name: "Bananas",
+                quantity: 3
+            },
+            {
+                name: "Eggs",
+                quantity: 10
+            },
+            {
+                name: "Orange",
+                quantity: 1
+            }
+        ];
+
+        var boughtItems = [];
+
+        service.getToBuyItems = function() {
+            return toBuyItems;
         }
 
-        $scope.countItems = function(){
-            let filtered = this.food.split(',').filter(item => {
-                return item.trim() != '';
-            });
-            this.count = filtered.length;
+        service.getBoughtItems = function() {
+            return boughtItems;
         }
-        $scope.handleInputStyle = function(){
-            this.border['border-color'] = !this.count ? '#FF7F96' : '#cccccc';
-        }
-        $scope.checkIfTooMuch = function(){
-            this.countItems();
-            this.handleInputStyle();
 
-            if (!this.count){
-                this.message = 'Please enter data first';
-            }
-            else if (this.count > 3) {
-                this.message = 'Too much!';
-            }
-            else {
-                this.message = 'Enjoy!';
-            }
+        service.buyThisItem = function(itemIndex) {
+            let item = toBuyItems[itemIndex];
+            boughtItems.push(item);
+            toBuyItems.splice(itemIndex, 1);
         }
     }
 
+    ToBuyController.$inject = ['ShoppingListCheckOffService'];
+    function ToBuyController(ShoppingListCheckOffService) {
+        var toBuyList = this;
+        toBuyList.items = ShoppingListCheckOffService.getToBuyItems();
+        toBuyList.buyThisItem = function(item){
+            ShoppingListCheckOffService.buyThisItem(item)
+        };
+    }
+
+    AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
+    function AlreadyBoughtController(ShoppingListCheckOffService) {
+        var boughtList = this;
+        boughtList.items = ShoppingListCheckOffService.getBoughtItems();
+    }
 })();

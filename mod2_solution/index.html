@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="hunger">
+<html ng-app="ShoppingListCheckOff">
     <head>
         <meta charset="utf-8">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -8,15 +8,26 @@
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body ng-controller="hungerCtrl">
-        <div>Empty strings are not counted!</div>
-        <input 
-            ng-model="food"
-            ng-style="border"
-        >
-        <button ng-click="checkIfTooMuch()">
-            Check If Too Much
-        </button>
-        <div>{{message}}</div>
+    <body>
+        <h1>Shopping List App</h1>
+        <div ng-controller="ToBuyController as toBuyList">
+            <h2>To buy:</h2>
+            <div ng-if="!toBuyList.items.length">Everything is bought!</div>
+            <div ng-repeat="item in toBuyList.items">
+                <button ng-click="toBuyList.buyThisItem($index)">
+                    Bought
+                </button>
+                Buy {{item.quantity}} {{ item.name }}
+            </div>
+
+        </div>
+
+        <div ng-controller="AlreadyBoughtController as boughtList">
+            <h2>Bought:</h2>
+            <div ng-if="!boughtList.items.length">Nothing bought yet</div>
+            <div ng-repeat="item in boughtList.items">
+                Bought {{item.quantity}} {{ item.name }}
+            </div>
+        </div>
     </body>
 </html>
