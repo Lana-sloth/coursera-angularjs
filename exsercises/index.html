@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="AppMenu">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="app.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+            <div ng-controller="MenuCtrl as menu">
+                <ol>
+                    <li ng-repeat="category in menu.categories">
+                        <a href="" ng-click="menu.goToCategory(category.short_name)">
+                            {{category.name}}
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </body>
+</html>
