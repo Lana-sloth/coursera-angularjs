@@ -5,3 +5,4 @@
 ## Contents:
 * <a href='https://lana-sloth.github.io/coursera-angularjs/mod1_solution/'>Module 1 solution</a>
 * <a href='https://lana-sloth.github.io/coursera-angularjs/mod2_solution/'>Module 2 solution</a>
+* <a href='https://lana-sloth.github.io/coursera-angularjs/mod3_solution/'>Module 3 solution</a>
