@@ -1,0 +1,90 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #000000 !important;
+}
+
+h1, .navbar-brand {
+  font-family: Milkshake;
+  color: #ffffff !important;
+}
+
+h2 {
+  font-family: Milkshake;
+  color: #ffffff;
+  font-size: 70px;
+  margin: 10px;
+  display: block;
+
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+img {
+  image-rendering: optimizeSpeed;
+}
+
+.card-body button {
+  margin-top: 10px;
+  width: 100%;
+  height: 65px;
+}
+
+.nav-link {
+  color: #ffffff;
+}
+
+.bg-dark {
+  background-color: #000000 !important;
+}
+
+.welcome-block {
+  margin-top: 20%;
+  text-align: center;
+}
+
+.active {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.nav-link {
+  color: #ffffff80;
+}
+
+.nav-link:hover {
+  color: #ffffffb6;
+}
+
+.card {
+  border: 0;
+}
+
+.card-header {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: 1px rgba(120, 0, 0, 0.40) solid;
+  border-bottom: 0;
+}
+
+.categories {
+  border-radius: 4px; 
+  padding: 2px;
+  background-color: #ffffff;
+}
+
+.row .custom-card:last-of-type {
+  border-bottom: 0;
+}
+.hide {
+  opacity: 0;
+}
+.bg-img {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1502987547/GettyImages-545286388.jpg?itok=kGrhiiMo);
+  image-rendering: optimizeSpeed;
+  background-size: cover;
+  mix-blend-mode: exclusion;
+}

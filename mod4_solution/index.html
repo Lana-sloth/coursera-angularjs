@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="MenuApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Menu App</title>
+  </head>
+  <body class="bg-img">
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+      <span class="form-inline">
+        <a class="navbar-brand">Menu App</a>
+        <a class="nav-link" ui-sref="home" ui-sref-active="active">Home</a>
+        <a class="nav-link" ui-sref="categories" ui-sref-active="active">Categories</a>
+        <a class="nav-link hide" ui-sref="items" ui-sref-active="active">Items</a>
+      </span>
+        <script type="text/javascript" src="https://ko-fi.com/widgets/widget_2.js"></script><script type="text/javascript">kofiwidget2.init('Support Me', '#000000', 'A1131F');kofiwidget2.draw();</script>  
+    </nav>
+
+    <ui-view></ui-view>
+
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/menu/menu-app.module.js"></script>
+    <script src="src/menu/data.module.js"></script>
+
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+
+    <!-- Module artifacts -->
+    <script src="src/menu/categories.component.js"></script>
+    <script src="src/menu/items.component.js"></script>
+    <script src="src/menu/categories.controller.js"></script>
+    <script src="src/menu/items.controller.js"></script>
+    <script src="src/menu/menu-data.service.js"></script>
+
+  </body>
+</html>
